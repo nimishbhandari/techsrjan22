@@ -1420,13 +1420,13 @@
     transition: 1s ease;
   }
   #logo:before {
-    background-image: url("assets/img/50th-logo-left.svg");
+    background-image: url("./tswhite.png");
     left: 0;
     top: 0;
   }
   #logo:after {
     right: 0;
-    background-image: url("assets/img/logo-right.svg");
+    background-image: url("./tswhite.png");
     top: 15px;
     bottom: 0;
   }
