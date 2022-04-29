@@ -272,9 +272,15 @@
     margin-bottom: 12px;
     line-height: 30px;
   }
+  .about-text span{
+    font-size: 55px;
+    font-weight: 600;
+    font-family: "Brown", Helvetica-Neue, Helvetica, Arial, sans-serif;
+  }
   .text-section strong {
     font-weight: 600;
   }
+
   .text-section p {
     font-size: 14px;
     font-weight: 400;
@@ -340,7 +346,7 @@
     margin-bottom: 10px;
     margin-top: 50px;
     line-height: 25px;
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
   }
   .text-section a {
     color: var(--primary-color);
@@ -4550,6 +4556,7 @@
   }
   .people-info-section .about-text {
     z-index: 10;
+    margin-top: 5rem;
     width: 500px;
     position: relative;
   }
@@ -4570,7 +4577,7 @@
     position: absolute;
     left: 120%;
     width: 100%;
-    bottom: 0;
+    bottom: 35px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -4603,6 +4610,26 @@
     content: "/";
     margin-right: 10px;
     color: var(--primary-color);
+  }
+  .brij_img{
+    display: flex;
+    border-radius: 21px;
+  justify-content: center;
+  
+  }
+  .brij_img img{
+    width: 85%;
+    border-radius: 15px;
+  }
+  .info_brijesh{
+    width: 100%;
+    margin-top: -5rem;
+    text-align: center;
+    
+  }
+  .info_brijesh p{
+    margin-top: -1rem;
+    
   }
   .team-wrap {
       margin-left: 1rem;
@@ -11031,6 +11058,12 @@
       left: 0;
       top: 0;
     }
+    /* .people-info-section .team-count img {
+      position: relative;
+      left: 4rem;
+      width: 60%;
+      top: 0;
+    } */
     .people-info-section .team-count li {
       padding: 5px 0;
     }
@@ -11040,14 +11073,26 @@
   }
   @media only screen and (max-width: 1300px) {
     .team-wrap .team li {
-      width: 50%;
+      width: 30%;
+      margin-right: 2rem;
       height: 500px;
     }
     .fh-page-section#team {
       height: auto;
     }
   }
+  @media only screen and (max-width: 960px) {
+    .team-wrap .team li {
+      width: 46%;
+      margin-right: 2rem;
+      height: 500px;
+    }}
   @media only screen and (max-width: 1100px) {
+    .team-wrap .team li {
+      width: 45%;
+      margin-right: 2rem;
+      height: 500px;
+    }
     .team-member.fh-page-section {
       height: auto;
       padding-bottom: 50px;
@@ -12275,21 +12320,83 @@
   } /*# sourceMappingURL=style.css.map */
 
 
+  .core_team{
+    text-align: center;
+padding: 5rem;
+text-transform: uppercase;
+padding-bottom: 4rem;
+background:#222127;
+
+}
+  .core_team span{
+    font-size: 59px;
+letter-spacing: -0.02em;
+font-weight: 800;
+font-style: normal;
+color: var(--primary-color);
+text-align: center;
+font-family: "Brown", Helvetica-Neue, Helvetica, Arial, sans-serif;
+  }
+  .wie_chap{
+    text-align: center;
+padding: 1.5rem;
+text-transform: uppercase;
+/* padding-bottom: 4rem; */
+background:#222127;
+  }
+  .wie_chap span{
+    font-size: 59px;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    font-style: normal;
+    color: var(--primary-color);
+    text-align: center;
+    font-family: "Brown", Helvetica-Neue, Helvetica, Arial, sans-serif;
+  }
+  .sight_chap{
+    text-align: center;
+    text-transform: uppercase;
+padding: 1.5rem;
+padding-bottom: 2rem;
+background:#222127;
+  }
+  .sight_chap span{
+    font-size: 59px;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    font-style: normal;
+    color: var(--primary-color);
+    text-align: center;
+    font-family: "Brown", Helvetica-Neue, Helvetica, Arial, sans-serif;
+  }
+  .comp_society{
+    text-align: center;
+    text-transform: uppercase;
+padding: 1.5rem;
+padding-bottom: 2rem;
+background:#222127;
+  }
+  .comp_society span{
+    font-size: 59px;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    font-style: normal;
+    color: var(--primary-color);
+    text-align: center;
+    font-family: "Brown", Helvetica-Neue, Helvetica, Arial, sans-serif;
+  }
   
-  .core_team h1{
-    font-size: 75px;
-    text-align: center;
+  @media only screen and (max-width: 600px){
+    .core_team span{
+font-size: 40px;
+    }
+    .wie_chap span{
+      font-size: 40px;
+    }
+    .comp_society span{
+      font-size: 40px;
+    }
+    .sight_chap span{
+      font-size: 40px;
+    }
   }
-  .wie_chap h1{
-    font-size: 75px;
-    text-align: center;
-  }
-  .sight_chap h1{
-    font-size: 75px;
-    text-align: center;
-  }
-  .comp_society h1{
-    font-size: 75px;
-    text-align: center;
-  }
-  
