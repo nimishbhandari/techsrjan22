@@ -1408,8 +1408,8 @@
     }
   }
   #logo {
-    width: 20.66px;
-    height: 45px;
+    width: 60px;
+    height: 100px;
     display: block;
     position: relative;
   }
@@ -1426,7 +1426,7 @@
     transition: 1s ease;
   }
   #logo:before {
-    background-image: url("./tswhite.png");
+    background-image: url("");
     left: 0;
     top: 0;
   }
