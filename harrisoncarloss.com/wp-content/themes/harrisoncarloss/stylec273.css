@@ -1,3 +1,18 @@
+
+@font-face {
+  font-family: Abaddon;
+  src: url(../fonts/fast-hand-font/Abaddon.ttf);
+}
+@font-face {
+  font-family: CELTG;
+  src: url(../fonts/fast-hand-font/CELTG___.TTF);
+}
+@font-face {
+  font-family: Aunchanted Bold Regular;
+  src: url(../fonts/Aunchanted.ttf);
+}
+/* <b id="t">t</b> <b id="ech">ech</b> <b id="srijan">SRIJAN'22 </b> */
+
 @media only screen and (max-width: 2200px) {
     .hide-xxl {
       display: none !important;
@@ -3184,10 +3199,12 @@
   .landing__video--mobile {
     display: none;
     width: 100%;
+
   }
   @media only screen and (max-width: 992px) {
     .landing__video {
       display: none;
+    
     }
     .landing__video--mobile {
       display: block;
@@ -3235,9 +3252,35 @@
     }
   }
   .landing__content h1 {
-    font-size: 3.75em;
+    font-size: 2em;
     margin-top: 30px;
   }
+
+  .landing__content h1 #t{
+    font-family: CELTG;
+    font-size: 2em;
+  }
+  .landing__content h1 #ech{
+    font-family: Abaddon;
+    font-size: 1.5em;
+  }
+  .landing__content h1 #srijan{
+    font-family: Aunchanted Bold Regular;
+    font-size: 1.5em;
+  }
+  .footer__section h3 #t{
+    font-family: CELTG;
+    font-size: 2em;
+  }
+  .footer__section h3 #ech{
+    font-family: Abaddon;
+    font-size: 2em;
+  }
+  .footer__section h3 #srijan{
+    font-family: Aunchanted Bold Regular;
+    font-size: 2em;
+  }
+
   .landing__content > * {
     opacity: 0;
   }
@@ -3249,6 +3292,11 @@
     left: 50px;
     right: 0;
     margin: 0 auto;
+  }
+  @media only screen and (max-width: 720px) {
+    .landing__content h1{
+      font-size: 2.5em;
+    }
   }
   @media only screen and (max-width: 992px) {
     .landing__arrow {
