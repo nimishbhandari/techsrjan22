@@ -837,7 +837,8 @@ div#drift-frame-chat {
 .loading-overlay__logo img {
   margin-right: 3px;
   margin-left: 3px;
-  width: 14px;
+  /* width: 30px; */
+  height: 60px;
   -webkit-transition: 0.5s ease;
   -o-transition: 0.5s ease;
   transition: 0.5s ease;
@@ -1415,7 +1416,7 @@ canvas {
 }
 #logo:before,
 #logo:after {
-  width: 8px;
+  width: 20px;
   height: 100%;
   background-repeat: no-repeat;
   background-size: 8px;
@@ -1433,6 +1434,7 @@ canvas {
 #logo:after {
   right: 0;
   background-image: url("./tswhite.png");
+  background-size: contain;
   top: 15px;
   bottom: 0;
 }
@@ -7929,6 +7931,7 @@ a.fillLink {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
+  background: url(../harrisoncarloss/ts1.jpg);
   cursor: pointer;
 }
 .popup-holder .popup {
