@@ -12442,3 +12442,7 @@ transition: transform .7s ease;
 transform: scale(1.1);
 }
 
+.footer-move span{
+  color: #c3a368;
+  font-weight: 600;
+}
