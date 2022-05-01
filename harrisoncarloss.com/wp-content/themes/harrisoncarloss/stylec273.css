@@ -1,3 +1,16 @@
+@font-face {
+  font-family: Abaddon;
+  src: url(./fonts/Abaddon.ttf);
+}
+@font-face {
+  font-family: CELTG;
+  src: url(./fonts/CELTG___.TTF);
+}
+@font-face {
+  font-family: Aunchanted Bold;
+  src: url(./fonts/AunchantedBold.ttf);
+}
+
 @media only screen and (max-width: 2200px) {
   .hide-xxl {
     display: none !important;
@@ -3181,6 +3194,8 @@ body:not(.blog-archive) .featured-blog-posts .post:after {
 .landing__video--mobile {
   display: none;
   width: 100%;
+  margin-top: 90px;
+  background-size: cover;
 }
 @media only screen and (max-width: 992px) {
   .landing__video {
@@ -3188,6 +3203,8 @@ body:not(.blog-archive) .featured-blog-posts .post:after {
   }
   .landing__video--mobile {
     display: block;
+    margin-top: 100px;
+  background-size: cover;
   }
 }
 .landing .particles-js-canvas-el {
@@ -3228,13 +3245,56 @@ body:not(.blog-archive) .featured-blog-posts .post:after {
 }
 @media only screen and (max-width: 992px) {
   .landing__content {
-    padding: 50px 20px;
+    padding: 20px 20px;
   }
 }
 .landing__content h1 {
   font-size: 3.75em;
   margin-top: 30px;
 }
+.landing__content h1 #t{
+  font-size: 1.5em;
+  margin-top: 30px;
+  font-family: CELTG;
+}
+.landing__content h1 #ech{
+  font-size: 1em;
+  margin-top: 30px;
+  font-family: Abaddon;
+}
+.landing__content h1 #srijan{
+  font-size: 1.7em;
+  margin-top: 30px;
+  font-family: Aunchanted Bold Regular;
+}
+
+@media(max-width:620px){
+  .landing__content {
+    top: unset;
+    transform: none;
+    
+  }
+  .landing__content h1 {
+    font-size: 3.75em;
+    margin-top: 25px;
+  }
+  .landing__content h1 #t{
+    font-size: 0.6em;
+    margin-top: 10px;
+    font-family: CELTG;
+  }
+  .landing__content h1 #ech{
+    font-size: 0.5em;
+    margin-top: 10px;
+    font-family: Abaddon;
+  }
+  .landing__content h1 #srijan{
+    font-size: 0.6em;
+    margin-top: 10px;
+    font-family: Aunchanted Bold Regular;
+  }
+}
+
 .landing__content > * {
   opacity: 0;
 }
