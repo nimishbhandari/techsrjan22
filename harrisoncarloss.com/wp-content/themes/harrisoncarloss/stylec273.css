@@ -7899,6 +7899,7 @@ a.fillLink {
   width: 50%;
   padding: 0 100px 0 50px;
 }
+
 .standard-posts.jobs {
   padding-bottom: 100px;
   position: relative;
@@ -11701,7 +11702,17 @@ a.fillLink {
     font-size: 100px;
     bottom: -78px;
   }
+
 }
+
+@media only screen and (max-width: 1130px), only screen and (max-height: 895px){
+.contactform .contact-right {
+    width: 100%;
+    padding: 50px 50px 100px 50px;
+    margin-top: 250px;
+}
+}
+
 @media only screen and (max-height: 1040px) {
   form textarea {
     height: 80px;
@@ -11833,6 +11844,7 @@ a.fillLink {
 @media only screen and (max-width: 500px) {
   .contactform .contact-right {
     padding: 50px 20px 50px 20px;
+    margin-top: 250px;
   }
 }
 @media only screen and (max-width: 480px) {
