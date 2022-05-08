@@ -5413,7 +5413,7 @@ body.projects .side-email {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   list-style: none;
-  padding-bottom: 45px;
+  /* padding-bottom: 45px; */
 }
 .projects-tiles li {
   width: 33.3333%;
