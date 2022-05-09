@@ -12,6 +12,185 @@ jQuery(document).ready(function ($) {
 
         return `<span class="swiper-pagination-current">${current}</span> <span class="fraction-line"></span> <span class="swiper-pagination-total">${total}</span>`;
     };
+    
+    class LogoSlider {
+        constructor(el) {
+            this.DOM = {
+                el: el,
+            };
+            this.slideshow = new Swiper(this.DOM.el, {
+                slidesPerView: 3,
+                nested: true,
+                grid: {
+                    rows: 4,
+                    fill: "row",
+                },
+                spaceBetween: 10,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                breakpoints: {
+                    0: {
+                        spaceBetween: 30,
+                    },
+                    480: {
+                        spaceBetween: 10,
+                    },
+                },
+            });
+        }
+    }
+
+    class TestimonialSlider {
+        constructor(el) {
+            this.DOM = {
+                el: el,
+            };
+            this.slideshow = new Swiper(this.DOM.el, {
+                autoHeight: false,
+                spaceBetween: 30,
+                nested: true,
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction",
+                    renderCustom: renderCustom,
+                },
+                autoplay: {
+                    delay: 7500,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                effect: "creative",
+                creativeEffect: {
+                    prev: {
+                        opacity: 0,
+                    },
+                    next: {
+                        opacity: 0,
+                    },
+                },
+            });
+        }
+    }
+
+    class BlogSlider {
+        constructor(el) {
+            this.DOM = {
+                el: el,
+            };
+            this.slideshow = new Swiper(this.DOM.el, {
+                slidesPerView: "auto",
+                freeMode: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+
+            this.text = $(this.DOM.el).find(".bg-text").first();
+
+            this.init();
+        }
+
+        init() {
+            this.calculateText();
+        }
+
+        calculateText() {
+            this.text.css(
+                "transform",
+                "translateX(" + this.slideshow.getTranslate() / 1.4 + "px)"
+            );
+            requestAnimationFrame(() => {
+                this.calculateText();
+            });
+        }
+    }
+
+
+    class Circle {
+        constructor(el) {
+            this.DOM = {
+                el: el,
+            };
+
+            this.canvas = this.DOM.el;
+            this.context = this.canvas.getContext("2d");
+            this.x = this.canvas.width / 2;
+            this.y = this.canvas.height / 2;
+            this.radius = 23;
+            this.endPercent = 100;
+            this.curPerc = 0;
+            this.circ = Math.PI * 2;
+            this.quart = Math.PI / 2;
+
+            this.context.lineWidth = 1;
+            this.context.strokeStyle = "#c3a368";
+
+            this.dir = "forwards";
+
+            this.initEvents();
+        }
+
+        initEvents() {
+            this.DOM.el.addEventListener("mouseenter", () => {
+                this.dir = "forwards";
+                this.animate(this.curPerc);
+            });
+            this.DOM.el.addEventListener("mouseleave", () => {
+                this.dir = "reverse";
+                this.animate(this.curPerc);
+            });
+        }
+
+        animate(current) {
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            this.context.beginPath();
+            this.context.arc(
+                this.x,
+                this.y,
+                this.radius,
+                -this.quart,
+                this.circ * current - this.quart,
+                false
+            );
+            this.context.stroke();
+
+            if (this.dir == "forwards") {
+                if (this.curPerc < this.endPercent) {
+                    this.curPerc += 5;
+                    requestAnimationFrame(() => {
+                        this.animate(this.curPerc / 100, this.dir);
+                    });
+                }
+            } else if (this.dir == "reverse") {
+                if (this.curPerc > 0) {
+                    this.curPerc -= 5;
+                    requestAnimationFrame(() => {
+                        this.animate(this.curPerc / 100, this.dir);
+                    });
+                }
+            }
+        }
+    }
+
+    
+    $: blogSliderDesktop = new BlogSlider(
+        document.querySelector(".blog-slide__slider--desktop")
+    );
+    $: blogSliderMobile = new BlogSlider(
+        document.querySelector(".blog-slide__slider--mobile")
+    );
+    $: logoSlider = new LogoSlider(
+        document.querySelector(".clients__logos")
+    );
+    $: testimonialSlider = new TestimonialSlider(
+        document.querySelector(".clients__testimonials")
+    );
 
     class HomeSlider {
         constructor(el) {
@@ -343,6 +522,11 @@ jQuery(document).ready(function ($) {
         }
     }
 
+    
+    $: homeSlider = new HomeSlider(
+        document.querySelector(".homepage-slider")
+    );
+
     $(window).resize(function () {
         if ($(window).width() < 992) {
             if (homeSlider.slideshow) {
@@ -357,185 +541,6 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    class LogoSlider {
-        constructor(el) {
-            this.DOM = {
-                el: el,
-            };
-            this.slideshow = new Swiper(this.DOM.el, {
-                slidesPerView: 3,
-                nested: true,
-                grid: {
-                    rows: 4,
-                    fill: "row",
-                },
-                spaceBetween: 10,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                breakpoints: {
-                    0: {
-                        spaceBetween: 30,
-                    },
-                    480: {
-                        spaceBetween: 10,
-                    },
-                },
-            });
-        }
-    }
-
-    class TestimonialSlider {
-        constructor(el) {
-            this.DOM = {
-                el: el,
-            };
-            this.slideshow = new Swiper(this.DOM.el, {
-                autoHeight: false,
-                spaceBetween: 30,
-                nested: true,
-                pagination: {
-                    el: ".swiper-pagination",
-                    type: "fraction",
-                    renderCustom: renderCustom,
-                },
-                autoplay: {
-                    delay: 7500,
-                    disableOnInteraction: false,
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                effect: "creative",
-                creativeEffect: {
-                    prev: {
-                        opacity: 0,
-                    },
-                    next: {
-                        opacity: 0,
-                    },
-                },
-            });
-        }
-    }
-
-    class BlogSlider {
-        constructor(el) {
-            this.DOM = {
-                el: el,
-            };
-            this.slideshow = new Swiper(this.DOM.el, {
-                slidesPerView: "auto",
-                freeMode: true,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-            });
-
-            this.text = $(this.DOM.el).find(".bg-text").first();
-
-            this.init();
-        }
-
-        init() {
-            this.calculateText();
-        }
-
-        calculateText() {
-            this.text.css(
-                "transform",
-                "translateX(" + this.slideshow.getTranslate() / 1.4 + "px)"
-            );
-            requestAnimationFrame(() => {
-                this.calculateText();
-            });
-        }
-    }
-
-    const blogSliderDesktop = new BlogSlider(
-        document.querySelector(".blog-slide__slider--desktop")
-    );
-    const blogSliderMobile = new BlogSlider(
-        document.querySelector(".blog-slide__slider--mobile")
-    );
-    const logoSlider = new LogoSlider(
-        document.querySelector(".clients__logos")
-    );
-    const testimonialSlider = new TestimonialSlider(
-        document.querySelector(".clients__testimonials")
-    );
-    const homeSlider = new HomeSlider(
-        document.querySelector(".homepage-slider")
-    );
-
-    class Circle {
-        constructor(el) {
-            this.DOM = {
-                el: el,
-            };
-
-            this.canvas = this.DOM.el;
-            this.context = this.canvas.getContext("2d");
-            this.x = this.canvas.width / 2;
-            this.y = this.canvas.height / 2;
-            this.radius = 23;
-            this.endPercent = 100;
-            this.curPerc = 0;
-            this.circ = Math.PI * 2;
-            this.quart = Math.PI / 2;
-
-            this.context.lineWidth = 1;
-            this.context.strokeStyle = "#c3a368";
-
-            this.dir = "forwards";
-
-            this.initEvents();
-        }
-
-        initEvents() {
-            this.DOM.el.addEventListener("mouseenter", () => {
-                this.dir = "forwards";
-                this.animate(this.curPerc);
-            });
-            this.DOM.el.addEventListener("mouseleave", () => {
-                this.dir = "reverse";
-                this.animate(this.curPerc);
-            });
-        }
-
-        animate(current) {
-            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            this.context.beginPath();
-            this.context.arc(
-                this.x,
-                this.y,
-                this.radius,
-                -this.quart,
-                this.circ * current - this.quart,
-                false
-            );
-            this.context.stroke();
-
-            if (this.dir == "forwards") {
-                if (this.curPerc < this.endPercent) {
-                    this.curPerc += 5;
-                    requestAnimationFrame(() => {
-                        this.animate(this.curPerc / 100, this.dir);
-                    });
-                }
-            } else if (this.dir == "reverse") {
-                if (this.curPerc > 0) {
-                    this.curPerc -= 5;
-                    requestAnimationFrame(() => {
-                        this.animate(this.curPerc / 100, this.dir);
-                    });
-                }
-            }
-        }
-    }
 
     $(".clients__testimonials__footer .arrow canvas").each(function () {
         new Circle($(this).get()[0]);
