@@ -1255,7 +1255,7 @@ a.wt-cli-element.cli_cookie_close_button {
 	font-weight:normal;
 }
 #cookie-law-info-bar[data-cli-type="widget"] .cli-bar-container,#cookie-law-info-bar[data-cli-type="popup"] .cli-bar-container{
-	display: block;
+	display: none;
 }
 .cli-style-v2 .cli-bar-message {
 	width: 70%;
